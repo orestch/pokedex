@@ -24,7 +24,6 @@ body {
 		margin: 0;
 		padding: 0;
 	}
-
 }
 
 // PARAGRAPHS
@@ -43,13 +42,15 @@ a:active {
 	top: 1px;
 }
 
-
 // PAGE HEADER
 .page-header {
 	margin: 0;
 	padding: 0;
 	height: 250px;
 	background: $dark-orange url(../img/header.jpg) center no-repeat;
+	@include m(mobile) {
+		background-size: cover;
+	}
 	border: none;
 	position: fixed;
 	left: 0;
@@ -62,6 +63,10 @@ a:active {
 		text-align: center;
 		line-height: 250px;
 		height: 250px;
+		@include m(mobile) {
+			line-height: 250px;
+			height: 180px;
+		}
 
 		img {
 			height: 60%;
@@ -179,23 +184,35 @@ a:active {
 	background-color: lighten($green, 10%);
 }
 
-
-
 // POKEMON 
 .pokemon {
+	.back {
+		display: none;
+		text-transform: uppercase;
+		font: bold 1rem $font-stack-secondary;
+		@include m(custom, $minwidth: 300px, $maxwidth: 991px) {
+			display: block;
+		}
+	}
+
+
+
 	margin-top: 250px;
+	@include m(custom, $minwidth: 300px, $maxwidth: 991px) {
+		margin-top: 30px;
+	}
 	border-radius: 5px;
 	padding: 16px 2rem;
 	background-color: lighten($grey, 90%);
 
 	.avatar-big {
-		    height: 163px;
-		    text-align: center;
+		height: 163px;
+		text-align: center;
 
-		    img {
-				height: 100%;
-				width: auto;
-			}
+		img {
+			height: 100%;
+			width: auto;
+		}
 	}
 
 	.pokemon-name {
@@ -219,19 +236,29 @@ a:active {
 
 		.btn {
 			width: 25rem;
+			@include m(mobile) {
+				width: 100%;
+			}
 		}
-	}
-	
+	}	
+}
+
+// NAVIGATION
+#top {
+	display: block;
+	position: relative;
+	top: -250px;
+	visibility: hidden;
+}
+
+#back {
+	display: block;
+	position: relative;
+	top: -250px;
+	visibility: hidden;
 }
 
 // LOADER
-#top {
-    display: block;
-    position: relative;
-    top: -250px;
-    visibility: hidden;
-}
-
 .loader {
 	color: lighten($grey, 30%);
 	font: normal 2rem $font-stack-secondary;
@@ -248,7 +275,6 @@ a:active {
 		animation: 1s linear infinite;
 	}
 }
-
 
 $class-slug: loader-dot;
 $increment: 0;
@@ -268,4 +294,3 @@ $increment: 0;
 		animation-name: #{$class-slug}#{$i};
 	}
 }
-

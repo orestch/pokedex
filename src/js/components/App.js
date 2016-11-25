@@ -41,7 +41,6 @@ export default class App extends React.Component {
   render() {    
     return (
       <div class="container-fluid">    
-      <span id="top"></span>  
         <div class="row">
           <div class="col-md-12">
             <Header />

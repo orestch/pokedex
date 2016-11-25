@@ -21,7 +21,7 @@ export default class Pokeitems extends React.Component {
     this.serverRequest = axios.get(source).then(function (result) {
       th.props.updatePokemonInfo(result.data, "block", result.data.types, result.data.moves);
     });
-
+    console.log("clicked");
   }
 
   componentDidMount() {
@@ -59,13 +59,14 @@ export default class Pokeitems extends React.Component {
 
     return (
         <div class="row pokeitems">
-          <div class="col-md-12">
+          <span id="back"></span> 
+          <div class="col-md-12 cf">
           {this.state.objects.map(function (obj, key) {
             
             return (
               
-              <div class="col-sm-4" key={key}>
-              <a href="#top" data-id={obj.pkdx_id} key={key+10}>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" key={key}>
+              <a href="#top" onClick={this.getPokemonInfo.bind(this)} data-id={obj.pkdx_id} key={key+10}>
               <div class="pokeitem" key={key} onClick={this.getPokemonInfo.bind(this)} data-id={obj.pkdx_id}>
                   
 
