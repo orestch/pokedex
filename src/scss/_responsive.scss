@@ -1,0 +1,27 @@
+$break-mobile: 500px;
+$break-tablet: 750px;
+$break-desktop: 1100px;
+
+// Generate media query 
+@mixin m($media, $minwidth: "", $maxwidth: "") {
+  @if $media == mobile {
+    @media only screen and (max-width: $break-mobile) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-mobile + 1) and (max-width: $break-tablet - 1) { @content; }
+  }
+	@else if $media == mobileAndTablet {
+    @media only screen and (max-width: $break-tablet) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-desktop) { @content; }
+  }
+  @else if $media == custom {
+  	@media only screen and (min-width: $minwidth + 1) and (max-width: $maxwidth - 1) { @content; }
+  }
+}
+
+
+
+
+

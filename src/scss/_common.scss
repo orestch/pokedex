@@ -1,0 +1,32 @@
+//
+// STYLESHEET
+// --------------------------------------------------
+
+
+//== Common page styles
+
+* {
+	outline: none !important;
+	box-sizing: border-box;
+}
+
+body, ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* Clearfix Class */
+.cf {
+   *zoom: 1;
+}
+
+.cf:after {
+   content: "";
+   display: block;
+   height: 0;
+   visibility: hidden;
+   clear: both;
+}
+
+
+

@@ -1,0 +1,271 @@
+//
+// STYLESHEET
+// --------------------------------------------------
+
+
+//== Specific page styles
+
+@import "common";
+@import 'vars';
+@import 'fonts';
+@import 'responsive';
+
+
+// BODY 
+html, body {
+	min-height: 100%;
+	font-size: 100%;
+}
+
+body {
+	font-family: $font-stack-primary;	
+	background-color: $dark-orange;
+	.container-fluid, .row {
+		margin: 0;
+		padding: 0;
+	}
+
+}
+
+// PARAGRAPHS
+p {
+	font-family: $font-stack-secondary;
+}
+
+// LINKS
+a, a:hover {
+	text-decoration: none !important;
+	color: $darkblue !important;
+	position: relative;
+}
+
+a:active {
+	top: 1px;
+}
+
+
+// PAGE HEADER
+.page-header {
+	margin: 0;
+	padding: 0;
+	height: 250px;
+	background: $dark-orange url(../img/header.jpg) center no-repeat;
+	border: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+
+	.logo {
+		margin: 0 auto;
+		text-align: center;
+		line-height: 250px;
+		height: 250px;
+
+		img {
+			height: 60%;
+			max-width: auto;
+		}
+	}
+}
+
+// POKEITEMS
+.pokeitems, .btn-more {
+	background-color: lighten($grey, 70%);
+}
+
+.pokeitems {
+	margin-top: 250px !important;
+	.pokeitem {
+		&:hover{
+			background-color: lighten($grey, 70%);
+			cursor: pointer;
+		}
+
+		width: 100%;
+		border: 4px solid #ccc;
+		border-radius: 5px;
+		margin: 15px 0;
+		padding: 16px 1rem;
+		height: 230px;
+		background-color: lighten($grey, 90%);
+
+		.avatar, .name, .types {
+			text-align: center;
+		}
+
+		.name {			
+			a {
+				font: bold 1rem $font-stack-primary;
+				transition: font-size .1s ease-in;
+			}
+
+			a:hover {
+				font-size: 1.05rem;
+			}
+		}
+
+		.avatar {
+			height: 110px;
+			img {
+				height: 100%;
+				max-width: auto;
+			}
+		}
+
+		.types {
+			.label {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}
+
+// LABELS
+.poison {
+	background-color: $red;
+}
+
+.bug {
+	background-color: $orange;
+}
+
+.flying {
+	background-color: $green;
+}
+
+.water {
+	background-color: $blue;
+}
+
+.normal {
+	background-color: $darkblue;
+}
+
+.electric {
+	background-color: lighten($orange, 10%);
+}
+
+.ground {
+	background-color: $brown;
+}
+
+.fire {
+	background-color: darken($red, 10%);
+}
+
+.fairy {
+	background-color: darken($orange, 10%);
+}
+
+.fighting {
+	background-color: lighten($brown, 10%);
+}
+
+.psychic {
+	background-color: darken(yellow, 10%);
+}
+
+.ghost {
+	background-color: lighten($grey, 10%);
+}
+
+.ice {
+	background-color: lighten($blue, 10%);
+}
+
+.grass {
+	background-color: lighten($green, 10%);
+}
+
+
+
+// POKEMON 
+.pokemon {
+	margin-top: 250px;
+	border-radius: 5px;
+	padding: 16px 2rem;
+	background-color: lighten($grey, 90%);
+
+	.avatar-big {
+		    height: 163px;
+		    text-align: center;
+
+		    img {
+				height: 100%;
+				width: auto;
+			}
+	}
+
+	.pokemon-name {
+		text-align: center;
+		font: normal 4rem $font-stack-secondary !important;
+	}
+
+	.skills {
+		font: normal 1.2rem $font-stack-secondary !important;
+	}
+
+	.type {
+		text-transform: capitalize;
+	}
+}
+
+// MORE
+.btn-more {
+	.row {
+		padding: 1.2rem;
+
+		.btn {
+			width: 25rem;
+		}
+	}
+	
+}
+
+// LOADER
+#top {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
+
+.loader {
+	color: lighten($grey, 30%);
+	font: normal 2rem $font-stack-secondary;
+	margin-top: 20px !important;
+
+
+	padding: 20rem 4rem;
+	background-color: lighten($grey, 70%);
+	height: 4rem;
+
+	.loader-dot {
+		padding: 0 3px 0 1px;
+		opacity: 0;
+		animation: 1s linear infinite;
+	}
+}
+
+
+$class-slug: loader-dot;
+$increment: 0;
+
+@for $i from 1 through 3 {	
+	@keyframes #{$class-slug}#{$i} {
+		0%   { opacity: 0; }
+		#{25+$increment}%  { opacity: 0; }
+		#{35+$increment}%  { opacity: 1; }
+		100% { opacity: 1; }
+	}
+	$increment: $increment + 25;
+}
+
+@for $i from 1 through 3 {
+	.#{$class-slug}:nth-child(#{$i}) {
+		animation-name: #{$class-slug}#{$i};
+	}
+}
+
