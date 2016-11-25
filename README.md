@@ -6,7 +6,7 @@ To run pokedex:
 ```javascript
 git clone https://github.com/orestch/pokedex.git
 ```
- * Navigate to the root directory via terminal 
+ * Navigate to the project root directory via terminal 
  * Install npm packages locally and run Webpack Dev Server (Node and npm must be installed on your OS). Run following commands:
  ```
 npm install
